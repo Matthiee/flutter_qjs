@@ -152,9 +152,14 @@ class FlutterQjs {
     String command, {
     String? name,
     int? evalFlags,
+    int memoryLimit = -1,
   }) {
     _ensureEngine();
     final ctx = _ctx!;
+    final rt = _rt!;
+
+    jsSetMemoryLimit(rt, memoryLimit);
+
     final jsval = jsEval(
       ctx,
       command,

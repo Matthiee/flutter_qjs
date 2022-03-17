@@ -142,6 +142,7 @@ void _runJsIsolate(Map spawnMessage) async {
             msg[#command],
             name: msg[#name],
             evalFlags: msg[#flag],
+            memoryLimit: msg[#memorylimit],
           );
           break;
         case #close:
@@ -259,6 +260,7 @@ class IsolateQjs {
     String command, {
     String? name,
     int? evalFlags,
+    int memoryLimit = -1,
   }) async {
     _ensureEngine();
     final evaluatePort = ReceivePort();
@@ -268,6 +270,7 @@ class IsolateQjs {
       #command: command,
       #name: name,
       #flag: evalFlags,
+      #memorylimit: memoryLimit,
       #port: evaluatePort.sendPort,
     });
     final result = await evaluatePort.first;

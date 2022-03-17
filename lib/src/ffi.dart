@@ -217,6 +217,19 @@ final void Function(
     )>>('jsSetMaxStackSize')
     .asFunction();
 
+/// DLLEXPORT void jsSetMemoryLimit(JSRuntime *rt, size_t memory_limit)
+final void Function(
+  Pointer<JSRuntime>,
+  int,
+) jsSetMemoryLimit = _qjsLib
+    .lookup<
+        NativeFunction<
+            Void Function(
+      Pointer<JSRuntime>,
+      IntPtr,
+    )>>('jsSetMemoryLimit')
+    .asFunction();
+
 /// void jsFreeRuntime(JSRuntime *rt)
 final void Function(
   Pointer<JSRuntime>,

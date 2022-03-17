@@ -35,6 +35,8 @@ extern "C"
 
   DLLEXPORT void jsSetMaxStackSize(JSRuntime *rt, size_t stack_size);
 
+  DLLEXPORT void jsSetMemoryLimit(JSRuntime *rt, size_t limit);
+
   DLLEXPORT void jsFreeRuntime(JSRuntime *rt);
 
   DLLEXPORT JSValue *jsNewCFunction(JSContext *ctx, JSValue *funcData);
